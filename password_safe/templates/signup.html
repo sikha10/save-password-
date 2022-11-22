@@ -1,0 +1,181 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+
+<style>
+#signup{
+    position: absolute;
+    margin-left: 630px;
+    margin-top: 190px;
+    background: none;
+    width: 200px;
+    font-family: 'Varela Round', sans-serif;
+    z-index: 1;
+}
+
+#nav_bar {
+    position: fixed;
+    display: flex;
+    z-index: 1;
+}
+
+.nav_bar_item{
+    font-family: 'Varela Round', sans-serif;
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    margin-left: 45px;
+    z-index: 1;
+}
+
+.nav_bar_item:hover {
+    transition: 0.5s;
+    color: rgba(50, 42, 165, 0.829);
+}
+
+#user_logo{
+    margin-left: 750px;
+    margin-top: 8px;
+
+}
+
+#user_name{
+    margin-left: 20px;
+    margin-top: 13px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 25px;
+}
+
+#login_butt {
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 90px;
+    height: 40px;
+    color: white;
+    background-color: rgba(39, 33, 122, 0.822);
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 0 #4e54c8;
+    transition: ease-out 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-family: 'Varela Round', sans-serif;
+    text-decoration: none;
+}
+
+#login_butt:hover {
+    background-color: #4e54c8;
+    box-shadow:inset 200px 0 0 0 #4e54c8;
+}
+
+#reg_butt {
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 110px;
+    height: 40px;
+    color: white;
+    background-color: rgba(39, 33, 122, 0.822);
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 0 #4e54c8;
+    transition: ease-out 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-family: 'Varela Round', sans-serif;
+    text-decoration: none;
+}
+
+#reg_butt:hover {
+    background-color: #4e54c8;
+    box-shadow:inset 200px 0 0 0 #4e54c8;
+}
+
+#logout_butt {
+    text-decoration: none;
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 90px;
+    height: 40px;
+    color: white;
+    background-color: rgba(39, 33, 122, 0.822);
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 0 #4e54c8;
+    transition: ease-out 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-family: 'Varela Round', sans-serif;
+}
+
+#logout_butt:hover {    
+    background-color: #4e54c8;
+    box-shadow:inset 200px 0 0 0 #4e54c8;
+}
+
+#submit{
+    transition: ease-out 0.3s;
+    outline: none;
+}
+
+#submit:hover{
+    border: solid 2px rgb(41, 169, 228);
+    color: rgb(41, 169, 228);
+    cursor: pointer;
+}
+
+</style>
+<body>
+    <div id="nav_bar">
+        <a href="/" class="nav_bar_item" id="Name"><h2>Home</h2></a>
+        {% block user_logo %}
+        <img src="https://bit.ly/3EoMwJ2" alt="user icon" id="user_logo" width="40px" height="40px">
+        <p id="user_name">{{user_name}}</p>
+        {% endblock %}
+        <a href="/login"  class="nav_bar_item nav_items" id="login_butt"><h3>Login</h3></a>
+        <a href="/signup"  class="nav_bar_item nav_items" id="reg_butt"><h3>Sign up</h3></a>
+        <a href="/logout"  class="nav_bar_item nav_items" id="logout_butt"><h3>Logout</h3></a>
+    </div>
+{% block form %}
+    <h1 id="signup">Sign up</h1>
+    <div id="form">
+        <form action="/login/" method="post">{% csrf_token %}
+            <label for="name">Name</label>
+            <br>
+            <input class='input' type="text" placeholder="Name" name="name">
+            <br><br>
+            <label for="name">Password</label>
+            <br>
+            <input class='input' type="text" placeholder="Password" name="password">
+            <br>
+            <input id="submit" type="submit">
+        </form>
+    </div>
+{% endblock %}
+<div id="background_animation">
+<div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+</div>
+
+</body>
+</html>

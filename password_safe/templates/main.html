@@ -1,0 +1,58 @@
+{% extends "signup.html" %}
+
+{% load static %}
+
+{% block user_logo %}
+    <img src="https://bit.ly/3EoMwJ2" alt="user icon" id="user_logo" width="40px" height="40px">
+    <p id="user_name">{{username}}</p>
+{% endblock %}
+
+{% block form %}
+<style>
+    
+#title_of_saved_info{
+    display: flex;
+    font-size: 15px;
+}
+
+#objs{
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 65px;
+    font-family: 'Varela Round', sans-serif;
+    background: none;
+    z-index: 1;
+}
+
+.obj{
+    margin-top: 10px;
+}
+
+</style>
+<link rel="stylesheet" href="{% static 'name.css' %}">
+
+<div id="form">
+    <form action="/create/" method="post">{% csrf_token %}
+        <label for="name">Name</label>
+        <br>
+        <input class='input' type="text" placeholder="Name" name="name2">
+        <br><br>
+        <label for="name">Password</label>
+        <br>
+        <input class='input' type="text" placeholder="Password" name="password2">
+        <input type="hidden" name="user_name" value="{{ username }}">
+        <br>
+        <input id="submit" type="submit">
+    </form>
+</div>
+<br><br><br>
+
+<div id="objs">
+<span id="title_of_saved_info"><h2>Name -</h2><h2>- Password</h2></span>
+{% for obj in zip_lists %}
+
+<div class="obj"><h3>{{ obj.0 }} -- {{ obj.1 }}</h3></div>
+
+{% endfor %}
+</div>
+{% endblock %}

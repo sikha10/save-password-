@@ -1,0 +1,18 @@
+{% extends "signup.html" %}
+
+{% block form %}
+<h1 id="signup" style="margin-left: 645px;">Login</h1>
+<div id="form">
+    <form action="/" method="post">{% csrf_token %}
+        <label for="name">Name</label>
+        <br>
+        <input class='input' type="text" placeholder="Name" name="name3">
+        <br><br>
+        <label for="name">Password</label>
+        <br>
+        <input class='input' type="text" placeholder="Password" name="password3">
+        <br>
+        <input id="submit" type="submit">
+    </form>
+</div>
+{% endblock %}
